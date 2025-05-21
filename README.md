@@ -14,7 +14,7 @@
 
 ## [ DEVELOPER'S NOTES ]  
 // 1. Compilation  
-// g++ -o test main.cpp utility.cpp -lsfml-audio -lsfml-system  
+// g++ -o test main.cpp utility.cpp game.cpp -lsfml-audio -lsfml-system  
 
 // 2. Run executable(.exe) in external console  
 // Note: Edit path to your project  

@@ -1,3 +1,6 @@
+#ifndef ATTACK_H
+#define ATTACK_H
+
 #include <string>
 
 // Attack > PhysicalAttack, MagicAttack, LifestealAttack
@@ -43,3 +46,5 @@ public:
     (std::string n, double cc, double cdm, double hd)
     : Attack(n, cc, cdm), health_stolen(hd) {}
 };
+
+#endif

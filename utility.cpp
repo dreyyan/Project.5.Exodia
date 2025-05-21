@@ -1,5 +1,6 @@
 #include <algorithm>
 #include <conio.h>
+#include <fstream>
 #include <iostream>
 #include <string>
 #include <thread>
@@ -249,4 +250,38 @@ int getOption(int optionCount, std::string orientation, int length, const int x[
   }
 
   return current;
+}
+
+std::time_t parseTimestamp(const std::string& timestamp) {
+  std::tm tm = {};
+  std::istringstream ss(timestamp);
+  ss >> std::get_time(&tm, "%Y-%m-%d %H:%M");
+  return std::mktime(&tm);
+}
+
+int getLatestSavefile() {
+    std::ifstream file("data/saveFiles.json");
+    
+    if (!file) {
+        std::cerr << "Failed to open saveFiles.json\n";
+        return -1;
+    }
+
+    json data;
+    file >> data;
+
+    std::time_t latestTime = 0;
+    int latestIndex = -1;
+
+
+    for (int i = 0; i < data.size(); ++i) {
+        std::string timestamp = data[i]["saveTimestamp"];
+        std::time_t t = parseTimestamp(timestamp);
+        if (t > latestTime) {
+        latestTime = t;
+        latestIndex = i;
+        }
+    }
+
+  return latestIndex;
 }

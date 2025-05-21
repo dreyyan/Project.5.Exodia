@@ -1,3 +1,6 @@
+#ifndef ENTITY_H
+#define ENTITY_H
+
 #include <iomanip>
 #include <iostream>
 #include <vector>
@@ -180,3 +183,5 @@ public:
         std::cout << std::setw(20) << "Item Drops: " << getItemDrops() << '\n';
     }
 };
+
+#endif

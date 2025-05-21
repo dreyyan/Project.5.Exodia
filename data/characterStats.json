@@ -2,12 +2,12 @@
     {
         "name": "Knight",
         "level": 1,
-        "maxHealth": 10,
-        "currentHealth": 5,
-        "basePhysicalDamage": 1,
-        "baseMagicDamage": 1,
-        "baseArmor": 1,
-        "baseMagicResist": 1
+        "maxHealth": 0,
+        "currentHealth": 0,
+        "basePhysicalDamage": 0,
+        "baseMagicDamage": 0,
+        "baseArmor": 0,
+        "baseMagicResist": 0
     },
     {
         "name": "Archer",

@@ -1,3 +1,6 @@
+#ifndef UTILITY_H
+#define UTILITY_H
+
 #include <cstddef>
 #include <string>
 #include <SFML/Audio.hpp>
@@ -90,3 +93,11 @@ void playBackgroundMusic(std::string musicFileName, int volume);
 
 // Prompt user to navigate the console within a specified number of options using 'arrow' & 'enter' keys
 int getOption(int optionCount, std::string orientation, int length, const int x[], const int y[]);
+
+// Convert timestamp string to time_t
+std::time_t parseTimestamp(const std::string& timestamp);
+
+// Get the latest savefile from 'saveFiles.json'
+int getLatestSavefile();
+
+#endif
