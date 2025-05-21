@@ -1,0 +1,32 @@
+[
+  {
+    "id": "slime_killer_1",
+    "name": "First Blood",
+    "description": "Kill your first slime.",
+    "requirement": 1
+  },
+  {
+    "id": "slime_killer_25",
+    "name": "Slime Slayer",
+    "description": "Defeat 25 slimes.",
+    "requirement": 25
+  },
+  {
+    "id": "slime_killer_50",
+    "name": "Green Menace",
+    "description": "Eliminate 50 slimes.",
+    "requirement": 50
+  },
+  {
+    "id": "slime_killer_75",
+    "name": "Ooze Obliterator",
+    "description": "Destroy 75 slimes.",
+    "requirement": 75
+  },
+  {
+    "id": "slime_killer_100",
+    "name": "Slime Exterminator",
+    "description": "Wipe out 100 slimes. Nothing but goo remains.",
+    "requirement": 100
+  }
+]

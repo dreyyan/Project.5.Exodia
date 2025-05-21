@@ -1,0 +1,32 @@
+[
+    {
+        "name": "Knight",
+        "level": 1,
+        "maxHealth": 10,
+        "currentHealth": 5,
+        "basePhysicalDamage": 1,
+        "baseMagicDamage": 1,
+        "baseArmor": 1,
+        "baseMagicResist": 1
+    },
+    {
+        "name": "Archer",
+        "level": 1,
+        "maxHealth": 5,
+        "currentHealth": 5,
+        "basePhysicalDamage": 1,
+        "baseMagicDamage": 1,
+        "baseArmor": 1,
+        "baseMagicResist": 1
+    },
+    {
+        "name": "Wizard",
+        "level": 1,
+        "maxHealth": 5,
+        "currentHealth": 5,
+        "basePhysicalDamage": 1,
+        "baseMagicDamage": 1,
+        "baseArmor": 1,
+        "baseMagicResist": 1
+    }
+]

@@ -1,0 +1,26 @@
+[
+    {
+        "characterName": "savefile_1",
+        "level": 1,
+        "progress": 0,
+        "saveTimestamp": "2025-05-21 15:30",
+        "playtimeDuration": 0,
+        "achievements": []
+    },
+    {
+        "characterName": "savefile_2",
+        "level": 1,
+        "progress": 0,
+        "saveTimestamp": "2025-05-21 15:30",
+        "playtimeDuration": 0,
+        "achievements": []
+    },
+    {
+        "characterName": "savefile_3",
+        "level": 1,
+        "progress": 0,
+        "saveTimestamp": "2025-05-21 15:30",
+        "playtimeDuration": 0,
+        "achievements": []
+    }
+]
