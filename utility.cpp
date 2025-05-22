@@ -2,6 +2,7 @@
 #include <conio.h>
 #include <fstream>
 #include <iostream>
+#include <random>
 #include <string>
 #include <thread>
 #include "utility.h"
@@ -284,4 +285,12 @@ int getLatestSavefile() {
     }
 
   return latestIndex;
+}
+
+int generateRandomNumber(int maxRange) {
+    std::random_device rd;
+    std::mt19937 gen(rd());
+
+    std::uniform_int_distribution<> dist(0, maxRange - 1); // 0-based indexing
+    return dist(gen);
 }

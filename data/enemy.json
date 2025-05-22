@@ -1,22 +1,38 @@
-[
-    {
-        "id": 0,
-        "name": "Goblin",
-        "maxHealth": 4,
-        "basePhysicalDamage": 3,
-        "baseMagicDamage": 0,
-        "baseArmor": 0,
-        "baseMagicResist": 0,
-        "description": "A sneaky creature that attacks in groups."
-    },
-    {
-        "id": 1,
-        "name": "Skeleton",
-        "maxHealth": 6,
-        "basePhysicalDamage": 2,
-        "baseMagicDamage": 0,
-        "baseArmor": 2,
-        "baseMagicResist": 2,
-        "description": "An undead warrior held together by dark magic."
-    }
-]
+{
+    "The Ruins": [
+        {
+            "id": 0,
+            "name": "Skeleton",
+            "maxHealth": 6,
+            "basePhysicalDamage": 2,
+            "baseMagicDamage": 0,
+            "baseArmor": 2,
+            "baseMagicResist": 2,
+            "description": "An undead warrior held together by dark magic."
+        }
+    ],
+    "The Forest": [
+        {
+            "id": 0,
+            "name": "Goblin",
+            "maxHealth": 4,
+            "basePhysicalDamage": 3,
+            "baseMagicDamage": 0,
+            "baseArmor": 0,
+            "baseMagicResist": 0,
+            "description": "A sneaky creature that attacks in groups."
+        }
+    ],
+    "The Castle": [
+        {
+            "id": 0,
+            "name": "Wizard",
+            "maxHealth": 2,
+            "basePhysicalDamage": 0,
+            "baseMagicDamage": 4,
+            "baseArmor": 0,
+            "baseMagicResist": 2,
+            "description": "A human capable of casting magic spells."
+        }
+    ]
+}

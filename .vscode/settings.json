@@ -127,6 +127,7 @@
     "forward_list": "cpp",
     "ranges": "cpp",
     "valarray": "cpp",
-    "fstream": "cpp"
+    "fstream": "cpp",
+    "cstdarg": "cpp"
   }
 }

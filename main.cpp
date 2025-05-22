@@ -59,15 +59,10 @@ public:
 
             // Display savefiles
             std::cout << std::setw(16) << "Name  ||  " << characterName << '\n';
-            delayMs(50);
             std::cout << std::setw(16) << "Lvl.  ||  " << level << '\n';
-            delayMs(50);
             std::cout << std::setw(16) << "Progress  ||  " << progress << '\n';
-            delayMs(50);
             std::cout << std::setw(16) << "Last Saved  ||  " << saveTimestamp << '\n';
-            delayMs(50);
             std::cout << std::setw(16) << "Duration  ||  " << playtimeDuration << '\n';
-            delayMs(50);
         }
 
         // Get main menu option

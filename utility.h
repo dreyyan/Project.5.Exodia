@@ -100,4 +100,6 @@ std::time_t parseTimestamp(const std::string& timestamp);
 // Get the latest savefile from 'saveFiles.json'
 int getLatestSavefile();
 
+// Generate a random number using the Mersenne Twister Engine
+int generateRandomNumber(int maxRange);
 #endif
