@@ -3,6 +3,7 @@
         {
             "id": 0,
             "name": "Skeleton",
+            "level": 1,
             "maxHealth": 6,
             "basePhysicalDamage": 2,
             "baseMagicDamage": 0,
@@ -15,6 +16,7 @@
         {
             "id": 0,
             "name": "Goblin",
+            "level": 1,
             "maxHealth": 4,
             "basePhysicalDamage": 3,
             "baseMagicDamage": 0,
@@ -27,6 +29,7 @@
         {
             "id": 0,
             "name": "Wizard",
+            "level": 1,
             "maxHealth": 2,
             "basePhysicalDamage": 0,
             "baseMagicDamage": 4,
