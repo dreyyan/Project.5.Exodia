@@ -1,3 +1,4 @@
+    #include <conio.h>
     #include <fstream>
     #include <iostream>
     #include <string>
@@ -20,6 +21,50 @@
         goTo(28, 11); std:: cout << "\\";
 
         // Do player turn
+        // Get action option
+        int y[] = {18, 20, 18, 20};
+        int x[] = {15, 15, 36, 35};
+        int optionCount = 4;
+        int current = 0;
+        char key;
+
+        while (true) {
+            for (int i = 0; i < optionCount; ++i) {
+            // Left cursor
+            goTo(x[i] - 3, y[i]);
+            std::cout << (i == current ? ">" : " ");
+
+            // Right cursor
+            goTo(x[i] + length, y[i]);
+            std::cout << (i == current ? "<" : " ");
+            }
+
+            key = _getch();
+
+            // Play SFX based on key pressed
+            if (key == 75 || key == 77) playSFX("navigateOption.wav", 30);
+            else playSFX("selectOption.wav", 50);
+
+            if (key == 75) { // Left Arrow
+            current = (current - 1 + optionCount) % optionCount;
+            } else if (key == 77) { // Right Arrow
+            current = (current + 1) % optionCount;
+            } else if (key == 13) { // Enter
+            break;
+            }
+
+            // Play SFX based on key pressed
+            if (key == 72 || key == 80) playSFX("navigateOption.wav", 30);
+            else playSFX("selectOption.wav", 50);
+
+            if (key == 72) { // Up Arrow
+            current = (current - 1 + optionCount) % optionCount;
+            } else if (key == 80) { // Down Arrow
+            current = (current + 1) % optionCount;
+            } else if (key == 13) { // Enter
+            break;
+            }
+        }
 
         std::cin.get();
         goTo(28, 10); std:: cout << " ";
@@ -145,7 +190,7 @@
     void displayArrow(std::string direction) {
         if (direction == "left") {
             // Dislay left-side arrow
-            goTo(26, 6); std:: cout << "\\";
+            goTo(26, 6); std:: cout << "0";
             goTo(27, 7); std:: cout << "\\";
             goTo(28, 8); std:: cout << "\\";
             goTo(29, 9); std:: cout << "\\";
@@ -154,11 +199,11 @@
             goTo(29, 12); std:: cout << "/";
             goTo(28, 13); std:: cout << "/";
             goTo(27, 14); std:: cout << "/";
-            goTo(26, 15); std:: cout << "/";
+            goTo(26, 15); std:: cout << "0";
 
         } else if (direction == "right") {
             // Dislay right-side arrow
-            goTo(34, 6); std:: cout << "/";
+            goTo(34, 6); std:: cout << "0";
             goTo(33, 7); std:: cout << "/";
             goTo(32, 8); std:: cout << "/";
             goTo(31, 9); std:: cout << "/";
@@ -167,62 +212,70 @@
             goTo(31, 12); std:: cout << "\\";
             goTo(32, 13); std:: cout << "\\";
             goTo(33, 14); std:: cout << "\\";
-            goTo(34, 15); std:: cout << "\\";
+            goTo(34, 15); std:: cout << "0";
         }
     }
 
     void displayDivider() {
         goTo(1, 16);
-        displaySpacedFormat(60, '#');
+        displaySpacedFormat(60, '=');
         goTo(1, 1);
     }
 
     void displayHeader() {
         displaySpacedFormat(60, '#');
         space(1);
-        centerText(selectedArea);
+        centerText('"' + selectedArea + '"');
         space(2);
-        displaySpacedFormat(60, '#');
-    }
-
-    void displayBattleArea() {
-        space(1);
-        moveCursor(0, 0, 3, 0); std::cout << player.name << " ( Lvl. " << player.level << " ) \n";
-        moveCursor(0, 0, 3, 0); displayHPBar(player.currentHealth, player.maxHealth); space(1);
-        moveCursor(0, 0, 3, 0); std::cout << player.currentHealth << " / " << player.maxHealth << " HP\n";
-        space(1);
+        displaySpacedFormat(60, '=');
     }
 
     void displayPlayerStats() {
-        moveCursor(0, 0, 3, 0); std::cout << player.basePhysicalDamage << " >" << std::setw(8) << std::setfill('-') << "< AD\n";
-        moveCursor(0, 0, 3, 0); std::cout << player.baseMagicDamage << " >" << std::setw(8) << std::setfill('-') << "< AP\n";
-        moveCursor(0, 0, 3, 0); std::cout << player.baseArmor << " >" << std::setw(8) << std::setfill('-') << "< DF\n";
-        moveCursor(0, 0, 3, 0); std::cout << player.baseMagicResist << " >" << std::setw(8) << std::setfill('-') << "< MR\n";
+        space(1);
+        moveCursor(0, 0, 3, 0); std::cout << player.name << " ( Lvl. " << player.level << " ) \n";
+        moveCursor(0, 0, 3, 0); displayHPBar(player.currentHealth, player.maxHealth); space(1);
+        moveCursor(0, 0, 3, 0); std::cout << player.currentHealth << " / " << player.maxHealth << "\n";
+        space(1);
+        moveCursor(0, 0, 4, 0); std::cout << player.basePhysicalDamage << " >" << std::setw(8) << std::setfill('-') << "< AD\n";
+        moveCursor(0, 0, 4, 0); std::cout << player.baseMagicDamage << " >" << std::setw(8) << std::setfill('-') << "< AP\n";
+        moveCursor(0, 0, 4, 0); std::cout << player.baseArmor << " >" << std::setw(8) << std::setfill('-') << "< DF\n";
+        moveCursor(0, 0, 4, 0); std::cout << player.baseMagicResist << " >" << std::setw(8) << std::setfill('-') << "< MR\n";
     }
 
     void displayEnemyStats() {
-        
+        int offset = 7 - enemy.name.length();
+        if (offset < 0) goTo(40 + offset, 7);
+        else if (offset > 0) goTo(40 + offset, 7);
+
+        std::cout << " ( Lvl. " << enemy.level << " ) " << enemy.name << '\n';
+        goTo(47, 8); displayHPBar(enemy.currentHealth, enemy.maxHealth); space(1);
+        goTo(54, 9); std::cout << enemy.currentHealth << " / " << enemy.maxHealth << "\n";
+
+        goTo(49, 11); std::cout << "AD >" << std::setw(4) << std::setfill('-') << "< " << enemy.basePhysicalDamage;
+        goTo(49, 12); std::cout <<  "AP >" << std::setw(4) << std::setfill('-') << "< " << enemy.baseMagicDamage;
+        goTo(49, 13); std::cout << "DF >" << std::setw(4) << std::setfill('-') << "< " << enemy.baseArmor;
+        goTo(49, 14); std::cout << "MR >" << std::setw(4) << std::setfill('-') << "< " << enemy.baseMagicResist;
+    }
+
+    void displayActions() {
+        goTo(15, 18); std::cout << "[ ATTACK ]";
+        goTo(15, 20); std::cout << "[ ITEMS ]";
+        goTo(36, 18); std::cout << "[ SKILLS ]";
+        goTo(35, 20); std::cout << "[ RETREAT ]";
+        goTo(1, 22); displayFormat(60, '#');
     }
 
     void displayGameArea() {
-        // Display divider
         displayDivider();
-
-        // Display header
         displayHeader();
 
-        // Display battle area
-        displayBattleArea();
-
-        // Display player's stats
         displayPlayerStats();
-
-        // Display enemy's stats
         displayEnemyStats();
 
-        // Display arrow
         displayArrow("left");
         displayArrow("right");
+
+        displayActions();
     }
 
     void startGame() {

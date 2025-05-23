@@ -11,9 +11,10 @@ void loadRandomEnemy();
 void displayArrow(std::string direction);
 void displayDivider();
 void displayHeader();
-void displayBattleArea();
 void displayPlayerStats();
+void displayEnemyStats();
 int generateRandomNumber(int maxRange);
+void displayActions();
 void displayGameArea();
 void startGame();
 
