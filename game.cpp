@@ -35,7 +35,7 @@
             std::cout << (i == current ? ">" : " ");
 
             // Right cursor
-            goTo(x[i] + length, y[i]);
+            goTo(x[i] + 3, y[i]);
             std::cout << (i == current ? "<" : " ");
             }
 
