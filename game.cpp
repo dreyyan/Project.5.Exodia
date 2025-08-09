@@ -13,6 +13,23 @@
     std::string selectedArea;
     bool battleEnded = false;
 
+    void attackMenu() {
+        std::cout << "Attack" << '\n';
+    }
+
+    void itemsMenu() {
+        std::cout << "Items" << '\n';
+
+    }
+
+    void skillsMenu() {
+        std::cout << "Skills" << '\n';
+    }
+
+    void retreatMenu() {
+        std::cout << "Retreat" << '\n';
+    }
+
     void playerTurn() {
         // Display arrowhead
         goTo(29, 10); std:: cout << " ";
@@ -23,20 +40,37 @@
         // Do player turn
         // Get action option
         int y[] = {18, 20, 18, 20};
-        int x[] = {15, 15, 36, 35};
+        int x[] = {13, 13, 33, 33};
         int optionCount = 4;
         int current = 0;
         char key;
 
         while (true) {
             for (int i = 0; i < optionCount; ++i) {
-            // Left cursor
-            goTo(x[i] - 3, y[i]);
-            std::cout << (i == current ? ">" : " ");
+                // Left cursor
+                if (current == 0) {
+                    goTo(x[i], y[i]);
+                } else if (current == 1) {
+                    goTo(x[i], y[i]);
+                } else if (current == 2) {
+                    goTo(x[i], y[i]);
+                } else if (current == 3) {
+                    goTo(x[i], y[i]);
+                }
+                std::cout << (i == current ? ">" : " ");
 
-            // Right cursor
-            goTo(x[i] + 3, y[i]);
-            std::cout << (i == current ? "<" : " ");
+                // Right cursor
+                if (current == 0) {
+                    goTo(x[i] + 13, y[i]);
+                } else if (current == 1) {
+                    goTo(x[i] + 13, y[i]);
+                } else if (current == 2) {
+                    goTo(x[i] + 14, y[i]);
+                } else if (current == 3) {
+                    goTo(x[i] + 14, y[i]);
+                }
+
+                std::cout << (i == current ? "<" : " ");
             }
 
             key = _getch();
@@ -46,11 +80,11 @@
             else playSFX("selectOption.wav", 50);
 
             if (key == 75) { // Left Arrow
-            current = (current - 1 + optionCount) % optionCount;
+                current = (current - 1 + optionCount) % optionCount;
             } else if (key == 77) { // Right Arrow
-            current = (current + 1) % optionCount;
+                current = (current + 1) % optionCount;
             } else if (key == 13) { // Enter
-            break;
+                break;
             }
 
             // Play SFX based on key pressed
@@ -58,17 +92,23 @@
             else playSFX("selectOption.wav", 50);
 
             if (key == 72) { // Up Arrow
-            current = (current - 1 + optionCount) % optionCount;
+                current = (current - 1 + optionCount) % optionCount;
             } else if (key == 80) { // Down Arrow
-            current = (current + 1) % optionCount;
+                current = (current + 1) % optionCount;
             } else if (key == 13) { // Enter
-            break;
+                break;
             }
         }
 
-        std::cin.get();
         goTo(28, 10); std:: cout << " ";
         goTo(28, 11); std:: cout << " ";
+
+        switch (current) {
+            case 0: attackMenu(); break;
+            case 1: itemsMenu(); break;
+            case 2: skillsMenu(); break;
+            case 3: retreatMenu(); break;
+        } 
     }
 
     void enemyTurn() {
@@ -259,8 +299,8 @@
 
     void displayActions() {
         goTo(15, 18); std::cout << "[ ATTACK ]";
-        goTo(15, 20); std::cout << "[ ITEMS ]";
-        goTo(36, 18); std::cout << "[ SKILLS ]";
+        goTo(15, 20); std::cout << " [ ITEMS ]";
+        goTo(35, 18); std::cout << "[ SKILLS ]";
         goTo(35, 20); std::cout << "[ RETREAT ]";
         goTo(1, 22); displayFormat(60, '#');
     }

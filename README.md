@@ -22,4 +22,4 @@ Note: Edit path to your project
 start cmd /k "test.exe"  
 
 - PowerShell:  
-Start-Process "powershell.exe" -ArgumentList "-NoExit", "-Command", "C:\Code\Projects\Project.5.Exodia\test.exe  
+Start-Process "powershell.exe" -ArgumentList "-NoExit", "-Command", "C:\Users\dreyyan\Downloads\code\Projects\Project.5.Exodia\test.exe"  
